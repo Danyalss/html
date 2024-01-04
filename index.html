@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>دانلود لینک</title>
+</head>
 <body>
-
-<h2>دانلود ویدیو</h2>
-
-<form action="download.php" method="post">
-  <label for="url">لینک ویدیو:</label><br>
-  <input type="text" id="url" name="url"><br>
-  <label for="expiry">زمان انقضا (به ساعت):</label><br>
-  <input type="number" id="expiry" name="expiry" min="1" max="12"><br><br>
-  <input type="submit" value="دانلود">
-</form> 
-
+    <form action="download.php" method="post">
+        <label for="videoURL">لینک ویدئو را وارد کنید:</label>
+        <input type="url" id="videoURL" name="videoURL" required>
+        <label for="expiry">زمان انقضا:</label>
+        <select name="expiry" id="expiry">
+            <option value="1">1 ساعت</option>
+            <option value="2">2 ساعت</option>
+            <!-- اضافه کردن گزینه‌های دیگر تا 12 ساعت -->
+            <option value="12">12 ساعت</option>
+        </select>
+        <button type="submit">ایجاد لینک دانلود</button>
+    </form>
 </body>
 </html>
