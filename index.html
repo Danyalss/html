@@ -1,27 +1,16 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Video Downloader</title>
-</head>
 <body>
-    <form action="/download_video" method="post">
-        <label for="video_url">Video URL:</label><br>
-        <input type="text" id="video_url" name="video_url"><br>
-        <label for="expiry_time">Expiry Time (in hours):</label><br>
-        <input type="number" id="expiry_time" name="expiry_time" min="1" max="12"><br>
-        <input type="submit" value="Submit">
-    </form>
-</body>
-</html>
 
-<!-- download.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Download Link</title>
-</head>
-<body>
-    <p>Your download link is: <a href="{{ download_link }}">{{ download_link }}</a></p>
+<h2>دانلود ویدیو</h2>
+
+<form action="download.php" method="post">
+  <label for="url">لینک ویدیو:</label><br>
+  <input type="text" id="url" name="url"><br>
+  <label for="expiry">زمان انقضا (به ساعت):</label><br>
+  <input type="number" id="expiry" name="expiry" min="1" max="12"><br><br>
+  <input type="submit" value="دانلود">
+</form> 
+
 </body>
 </html>
