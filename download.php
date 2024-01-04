@@ -8,7 +8,7 @@ $file_path = '/download/video.mp4';
 file_put_contents($file_path, $file);
 
 // ایجاد لینک دانلود
-$download_link = '/download/video.mp4';
+$download_link = 'https://danyals.cybranceehost.com/download.php/download/video.mp4';
 
 // تنظیم زمان انقضا
 $expiry_time = time() + ($expiry * 60 * 60); // convert hours to seconds
