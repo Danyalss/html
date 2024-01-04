@@ -1,14 +1,27 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Test</title>
+    <title>Video Downloader</title>
 </head>
 <body>
-    <p>Lorem "ipsum" dolor sit <b>gdxgbn</b> consectetur 
-        <br>
-        Lorem <q>dolor</q> sit <b>gdxgbn</b> consectetur 
-    H<sub>2O</sub>
-    </p>
-    
+    <form action="/download_video" method="post">
+        <label for="video_url">Video URL:</label><br>
+        <input type="text" id="video_url" name="video_url"><br>
+        <label for="expiry_time">Expiry Time (in hours):</label><br>
+        <input type="number" id="expiry_time" name="expiry_time" min="1" max="12"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+<!-- download.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Download Link</title>
+</head>
+<body>
+    <p>Your download link is: <a href="{{ download_link }}">{{ download_link }}</a></p>
 </body>
 </html>
