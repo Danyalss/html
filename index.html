@@ -1,21 +1,35 @@
 <!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <title>دانلود لینک</title>
-</head>
+<html>
 <body>
-    <form action="download.php" method="post">
-        <label for="videoURL">لینک ویدئو را وارد کنید:</label>
-        <input type="url" id="videoURL" name="videoURL" required>
-        <label for="expiry">زمان انقضا:</label>
-        <select name="expiry" id="expiry">
-            <option value="1">1 ساعت</option>
-            <option value="2">2 ساعت</option>
-            <!-- اضافه کردن گزینه‌های دیگر تا 12 ساعت -->
-            <option value="12">12 ساعت</option>
-        </select>
-        <button type="submit">ایجاد لینک دانلود</button>
-    </form>
+
+<h2>HTTP Request Form</h2>
+
+<form action="/send_request" method="post">
+  <label for="url">URL:</label><br>
+  <input type="text" id="url" name="url"><br>
+  <label for="headers">User-Agent:</label><br>
+  <select id="user_agent" name="user_agent">
+    <option value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537">Google Chrome</option>
+    <option value="Mozilla/5.0 (Windows NT 6.1; WOW64; rv:54.0) Gecko/20100101 Firefox/54.0">Mozilla Firefox</option>
+    <option value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299">Internet Explorer</option>
+    <option value="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36 OPR/34.0.2036.25">Opera</option>
+    <option value="Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)">Googlebot</option>
+  </select><br>
+  <label for="data">Data:</label><br>
+  <input type="text" id="data" name="data"><br>
+  <label for="method">Method:</label><br>
+  <input type="radio" id="get" name="method" value="GET">
+  <label for="get">GET</label><br>
+  <input type="radio" id="post" name="method" value="POST">
+  <label for="post">POST</label><br>
+  <input type="radio" id="put" name="method" value="PUT">
+  <label for="put">PUT</label><br>
+  <input type="radio" id="delete" name="method" value="DELETE">
+  <label for="delete">DELETE</label><br>
+  <input type="radio" id="head" name="method" value="HEAD">
+  <label for="head">HEAD</label><br>
+  <input type="submit" value="Submit">
+</form> 
+
 </body>
 </html>
